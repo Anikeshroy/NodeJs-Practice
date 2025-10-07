@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+        }
+
+        h1 {
+            text-align: center;
+            color: aliceblue;
+        }
+
+        form {
+            text-align: center;
+            font-size: large;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 2px;
+            padding: 2px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #494747;
+        }
+
+        tr:hover {
+            background-color: coral;
+        }
+
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        th {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>URL Shortener!</h1>
+    <div>
+        <form action="/url" method="POST">
+            <label style="color: aliceblue;" for="">Enter Your URL</label>
+            <input type="text" name="url" placeholder="Enter the URL">
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <div>
+        <% if(locals.id) { %>
+            <p style="color: aliceblue; text-align: center;">URL Generated: <a target="_blank"
+                    href="http://localhost:8000/<%=id%>">http://localhost:8000/<%= id %></a>
+            </p>
+            <%} %>
+    </div>
+    <div>
+        <% if (locals.urls) { %>
+            <table style=" color: aliceblue; text-align: center;">
+                <thead>
+                    <tr>
+                        <th>S. No.</th>
+                        <th>ShortID</th>
+                        <th>Redirect URL</th>
+                        <th>Clicks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% urls.forEach((url, index)=> { %>
+                        <tr>
+                            <td>
+                                <%= index+1 %>
+                            </td>
+                            <td>
+                                <%= url.shortId %>
+                            </td>
+                            <td>
+                                <%= url.redirectUrl %>
+                            </td>
+                            <td>
+                                <%= url.visitHistory.length %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } %>
+    </div>
+</body>
+
+</html>

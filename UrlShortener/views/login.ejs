@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<style>
+    .container {
+        width: 300px;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 18px;
+        padding: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: rgba(255, 255, 255, 0.55) 0px 5px 15px;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 08px;
+    }
+
+    input {
+        height: 30px;
+        border-radius: 8px;
+        border: 1px solid white;
+        /* background-color: rgba(240, 255, 255, 0.63); */
+        padding: 0px 5px;
+    }
+
+    label {
+        color: aliceblue;
+    }
+
+    button {
+        padding: 05px;
+        font-size: 20px;
+        font-weight: 700;
+        border-radius: 8px;
+        border: none;
+        background-color: rgba(39, 194, 39, 0.76);
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+    }
+</style>
+
+<body
+    style="background-color: rgb(23, 29, 48); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+    <div class="container">
+        <h1 style="text-align: center; color: aliceblue;">Login Page</h1>
+        <form action="/user/login" method="post">
+            <label for="">User Name</label>
+            <input type="email" required name="email" placeholder="Enter Your Email">
+            <label for="">Password</label>
+            <input type="text" required name="password" placeholder="Enter Your Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>
